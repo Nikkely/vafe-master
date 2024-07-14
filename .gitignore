@@ -23,3 +23,6 @@ dist-firefox-v2
 *.njsproj
 *.sln
 *.sw?
+
+# Others
+*apikey.ts

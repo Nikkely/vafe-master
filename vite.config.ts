@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { join, resolve } from 'path';
 import { defineConfig } from 'vite';
 import manifest from './src/manifest';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   // @see https://github.com/crxjs/chrome-extension-tools/issues/696
@@ -28,5 +29,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react(), crx({ manifest })],
+  plugins: [react(), crx({ manifest }), tsconfigPaths()],
 });

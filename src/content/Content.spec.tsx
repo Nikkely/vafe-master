@@ -10,6 +10,6 @@ describe('content', () => {
         <Content />
       </Provider>
     );
-    expect(screen.getByText('Content Counter')).toBeInTheDocument();
+    expect(screen.getByText('vafe master')).toBeInTheDocument();
   });
 });

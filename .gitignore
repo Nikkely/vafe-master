@@ -25,4 +25,4 @@ dist-firefox-v2
 *.sw?
 
 # Others
-*apikey.ts
+*.env

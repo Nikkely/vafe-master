@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
-
-import { useAppDispatch, useAppSelector } from '../../hooks';
-
-import { apikeys } from '@/utils';
+import React, { useState, useEffect } from 'react';
 
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // function initTrans() {}
 
 function trans(msg: string) {
-  // Access your API key as an environment variable (see "Set up your API key" above)
-  const genAI = new GoogleGenerativeAI(apikeys.gemini);
-
+  const apiKey = process.env.GEMINI_API_KEY ?? '';
+  if (!apiKey) return;
+  const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
   async function run() {
@@ -24,7 +20,6 @@ function trans(msg: string) {
   }
 
   run();
-  console.log(apikeys.gemini);
   return undefined;
 }
 
@@ -32,7 +27,7 @@ export function Translater() {
   const [msg, setMsg] = useState('');
 
   // initialize
-  React.useEffect(() => {
+  useEffect(() => {
     // initTrans();
     console.log('Hello world!');
   }, []);
